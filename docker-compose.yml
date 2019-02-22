@@ -1,0 +1,10 @@
+version: '3'
+services:
+
+  ihavedoneit-postgres:
+    image: postgres:10.7-alpine
+    ports:
+      - "5432:5432"
+    environment:
+      POSTGRES_USER: ihavedoneit
+      POSTGRES_PASSWORD: kcd2019
