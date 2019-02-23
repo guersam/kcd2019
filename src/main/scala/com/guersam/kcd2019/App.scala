@@ -8,5 +8,6 @@ object App extends IOApp {
 
   val app = new AppF[IO]
 
-  def run(args: List[String]): IO[ExitCode] = app.run.use(_ => IO.never).as(ExitCode.Success)
+  def run(args: List[String]): IO[ExitCode] =
+    app.run.use(_ => IO.never).as(ExitCode.Success)
 }

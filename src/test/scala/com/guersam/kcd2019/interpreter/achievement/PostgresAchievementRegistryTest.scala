@@ -20,10 +20,9 @@ class PostgresAchievementRegistryTest
 
   implicit val context = TestContext()
 
+  implicit val M: Monad[ConnectionIO] = Async[ConnectionIO] // to avoid ambiguous implicit resolution
+
   val transactor = TestTransactor.autoRollback
 
-  implicit val M: Monad[ConnectionIO] = Async[ConnectionIO]
-
   checkAll("PostgresAchievementRegistry", AchievementRegistryTests(PostgresAchievementRegistry).algebra)
-
 }

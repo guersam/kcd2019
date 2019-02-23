@@ -10,7 +10,11 @@ trait AchievementRegistryLaws[F[_]] {
   implicit def M: Monad[F]
 
   def registerFindAllComposition(a: Achievement): IsEq[F[Option[Achievement]]] =
-    algebra.registerAchievement(a) >> algebra.findAllAchievementsByTeam(a.teamId).map(_.headOption) <-> M.pure(Some(a))
+    (
+      algebra.registerAchievement(a) >>
+      algebra.findAllAchievementsByTeam(a.teamId).map(_.headOption)
+    ) <->
+      M.pure(Some(a))
 }
 
 object AchievementRegistryLaws {

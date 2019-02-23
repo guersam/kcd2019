@@ -19,5 +19,4 @@ class InMemoryAchievementRegistryTest
   implicit val context = TestContext()
 
   checkAll("InMemoryAchievementRegistry", AchievementRegistryTests(registry).algebra)
-
 }
