@@ -21,7 +21,7 @@
 
 또는 sbt 쉘에서 
 
-`sbt:kcd2019> reStart`
+`sbt:kcd2019> run`
 
 
 ## 테스트
